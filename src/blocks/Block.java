@@ -14,7 +14,7 @@ public abstract class Block {
     //除了l块为4*4，其余均为3*3，解决边缘碰撞问题
     protected int[][][] blockForm;
     protected String blockType;
-    protected int[] blockPos;
+    protected int[] blockPos=new int[2];
     public int blockSpin=0;
     protected int[] blockBott;
     protected int[] blockTop;

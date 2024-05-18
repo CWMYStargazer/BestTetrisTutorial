@@ -8,13 +8,13 @@ public final class TetrisMap {
     public static int[][] map=new int[10][22];
     public static final int mapWidth=10;
     public static final int mapHeight=20;
-    private int level;
-    private double dropTime;
+    private static int level;
+    private static double dropTime;
 
-    public void setDropTime(){
-        this.dropTime=Math.pow(0.8-((level-1)*0.007),(level-1));
+    public static void setDropTime(){
+        dropTime=Math.pow(0.8-((level-1)*0.007),(level-1));
     }
-    public void setLevel(int level){
-        this.level=level;
+    public static void setLevel(int level){
+        TetrisMap.level=level;
     }
 }

@@ -59,7 +59,34 @@ class GamePanel extends JPanel{
     }
 
     //绘制当前版面
-    void drawMap(){
+    @Override
+    protected void paintComponent(Graphics g){
+        super.paintComponent(g);
+        for(int i=0;i<TetrisMap.mapWidth;i++){
+            for(int t=1;t<=TetrisMap.mapHeight;t++){
+                g.setColor(getColor(TetrisMap.map[i][t]));
+                //这里画块块
+            }
+        }
+    }
 
+    Color getColor(int colorNum){
+        switch (colorNum){
+            case 1:
+                return Color.CYAN;
+            case 2:
+                return Color.BLUE;
+            case 3:
+                return Color.ORANGE;
+            case 4:
+                return Color.YELLOW;
+            case 5:
+                return Color.GREEN;
+            case 6:
+                return Color.RED;
+            case 7:
+                return Color.MAGENTA;
+        }
+        return Color.BLACK;
     }
 }
