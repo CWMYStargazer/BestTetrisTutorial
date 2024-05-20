@@ -47,8 +47,10 @@ class GamePanel extends JPanel{
             @Override
             public void keyPressed(KeyEvent e) {
                 switch (e.getKeyCode()){
-                    case KeyEvent.VK_E:
-                        System.out.println("测试：按下e键");
+                    case KeyEvent.VK_LEFT:
+                        System.out.println("测试：按下左键");
+                        //调用paint刷新
+                        paintComponent(getGraphics());
                         break;
                 }
             }
