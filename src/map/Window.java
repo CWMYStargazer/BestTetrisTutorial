@@ -66,6 +66,7 @@ class GamePanel extends JPanel{
             for(int t=1;t<=TetrisMap.mapHeight;t++){
                 g.setColor(getColor(TetrisMap.map[i][t]));
                 //这里画块块
+                g.fillRect((i+1)*20,t*20,20,20);
             }
         }
     }
