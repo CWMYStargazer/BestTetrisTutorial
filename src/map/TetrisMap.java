@@ -32,10 +32,10 @@ public final class TetrisMap {
      * 获取掉落块的信息，存入地图中
      * */
     public void setDropBlock(Block b){
-            for(int row=b.getBlockPosX();row<b.getBlockLength()+b.getBlockPosX();row++){
-                for(int line=b.getBlockPosY();line<b.getBlockHeight()+b.getBlockPosY();line++){
+            for(int y = b.getBlockPosY(); y <b.getBlockHeight()+b.getBlockPosY(); y++){
+                for(int x = b.getBlockPosX(); x <b.getBlockLength()+b.getBlockPosX(); x++){
                     //当地图上对应位置为空格时进行存储，块形状为空时不影响
-                    map[row][line] = b.getBlockForm()[b.blockSpin][row-b.getBlockPosX()][line-b.getBlockPosY()];
+                    map[y][x] = b.getBlockForm()[b.blockSpin][y -b.getBlockPosY()][x -b.getBlockPosX()];
                 }
             }
     }

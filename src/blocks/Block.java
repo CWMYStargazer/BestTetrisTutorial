@@ -6,7 +6,7 @@ public abstract class Block {
      * @param blockForm 块的形状
      * @param blockType 块的名称
      * @param blockPos  块的位置
-     * @param blockSpin 块的当前旋转状态，blockForm[blockSpin][blockTypeNum][BlockTypeNum]
+     * @param blockSpin 块的当前旋转状态，blockForm[blockSpin][blockFormY][BlockFormX]
      * @param blockBott 块的实际底部在存储形状中的位置，序号与块的形状序号匹配
      * @param blockTop  快的实际顶部在存储形状中的位置，序号与块的形状序号匹配
      * */
