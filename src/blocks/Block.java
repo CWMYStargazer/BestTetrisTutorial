@@ -42,7 +42,7 @@ public abstract class Block {
         return blockType;
     }
     public int getBlockLength(){
-        return blockForm.length;
+        return blockForm[0].length;
     }
     public int getBlockHeight(){
         return blockForm[0].length;

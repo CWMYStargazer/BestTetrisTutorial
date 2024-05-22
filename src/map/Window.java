@@ -34,6 +34,9 @@ class GameWindow extends JFrame{
 }
 
 class GamePanel extends JPanel{
+    //创建当前游戏模式的地图
+    TetrisMap map=new TetrisMap();
+
     GamePanel(){
         //设置基本属性
         setBackground(Color.BLACK);
@@ -49,6 +52,7 @@ class GamePanel extends JPanel{
                 switch (e.getKeyCode()){
                     case KeyEvent.VK_LEFT:
                         System.out.println("测试：按下左键");
+                        map.setDropBlock(map.showDropBlock());
                         //调用paint刷新
                         paintComponent(getGraphics());
                         break;
@@ -64,11 +68,14 @@ class GamePanel extends JPanel{
     @Override
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
+        //清空版面
+        repaint();
         for(int i=0;i<TetrisMap.mapWidth;i++){
-            for(int t=1;t<=TetrisMap.mapHeight;t++){
-                g.setColor(getColor(TetrisMap.map[i][t]));
+            //这里还是从0行开始画，单独把版面的框画在1处
+            for(int t=0;t<=TetrisMap.mapHeight;t++){
+                g.setColor(getColor(map.map[i][t]));
                 //这里画块块
-                g.fillRect((i+1)*20,t*20,20,20);
+                g.fillRect((t+1)*20,i*20,20,20);
             }
         }
     }

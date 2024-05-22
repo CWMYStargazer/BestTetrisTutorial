@@ -3,7 +3,7 @@ package controller;
 import blocks.*;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Random;
 
 public class CreateBlock {
@@ -44,14 +44,24 @@ public class CreateBlock {
      * 创建一包随机块
      * */
     private void createBlockPack(){
-        //用于随机块序的HashSet
-        HashSet<Integer> blockSet=new HashSet<>();
-        //随机生成块序，由于next显示栏的需求，一次性生成2个包
-        while (blockSet.size() < 7) {
-            blockSet.add(new Random().nextInt(7) + 1);
+        //使用shuffle算法
+        ArrayList<Integer> arr =new ArrayList<>();
+        ArrayList<Integer> nextPack=new ArrayList<>();
+        for(int i=1;i<8;i++){
+            arr.add(i);
         }
-        while (blockSet.iterator().hasNext()) {
-            switch (blockSet.iterator().next()) {
+        //随机生成块序存储到nextPack中
+        while(!arr.isEmpty()){
+            int index=new Random().nextInt(arr.size());
+            int num= arr.get(index);
+            nextPack.add(num);
+            arr.remove(index);
+        }
+        //读块序，存块
+        Iterator<Integer> s = nextPack.iterator();
+        while (s.hasNext()) {
+            int num = s.next();
+            switch (num) {
                 case 1:
                     nextBlock.add(new IBlock());
                     break;
@@ -75,6 +85,6 @@ public class CreateBlock {
                     break;
             }
         }
-        blockSet.clear();
+        nextPack.clear();
     }
 }

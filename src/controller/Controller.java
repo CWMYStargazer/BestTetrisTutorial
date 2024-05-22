@@ -19,7 +19,7 @@ public class Controller{
      * I块两侧有空白的情况特殊处理
      * 使用说明：
      * */
-    private Block move(Block b, moveDir dir){
+    public static Block move(Block b, moveDir dir,TetrisMap map){
         Block newBlock= b;
         switch (dir){
             case LEFT:
@@ -71,14 +71,14 @@ public class Controller{
             default:
         }
         //这里进行新块的碰撞检测，如果相撞则不返回新块
-        return (Check.collCheck(newBlock,TetrisMap.map)?b:newBlock);
+        return (Check.collCheck(newBlock,map.map)?b:newBlock);
     }
     /**
      * @param b 正在下落的块
      * @param dir 旋转方向，左旋（逆时针）和右旋（顺时针）
      * I块在板边时做特殊踢墙处理
      * */
-    private Block spin(Block b,spinDir dir){
+    public static Block spin(Block b,spinDir dir,TetrisMap map){
         Block newBlock=b;
         switch (dir){
             case LEFT_SPIN:
@@ -109,6 +109,6 @@ public class Controller{
                 break;
             default:
         }
-        return (Check.collCheck(newBlock,TetrisMap.map)?b:newBlock);
+        return (Check.collCheck(newBlock,map.map)?b:newBlock);
     }
 }
